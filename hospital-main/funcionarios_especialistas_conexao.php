@@ -17,11 +17,8 @@ function abrirBanco()
 function inserirFuncionariosEspecialistas($informacao_pessoal, $horario_consulta, $ponto_servico)
 {
 	$banco = abrirBanco();
-	$sql = "INSERT INTO funcionarios_especialistas(informacao_pessoal, 
-																																																horario_consulta, 
-																																																ponto_servico) VALUES ('{$informacao_pessoal}',
-																																																																							'{$horario_consulta}',
-																																																																							'{$ponto_servico}')";
+	$sql = "INSERT INTO funcionarios_especialistas(informacao_pessoal, horario_consulta, ponto_servico)
+	VALUES ('{$informacao_pessoal}','{$horario_consulta}','{$ponto_servico}')";
 	$banco->query($sql);
 	$banco->close();
 	voltarIndex();
@@ -33,10 +30,8 @@ function alterarFuncionariosEspecialistas()
 {
 	$banco = abrirBanco();
 	session_start();
-	$sql = "UPDATE funcionarios_especialistas SET informacao_pessoal='{$_POST["informacao_pessoal"]}',
-																																															horario_consulta='{$_POST["horario_consulta"]}',
-																																															ponto_servico='{$_POST["ponto_servico"]}', 
-																																															WHERE id_funcionario_especialista ='{$_POST["id_funcionario_especialista"]}'";
+	$sql = "UPDATE funcionarios_especialistas SET informacao_pessoal='{$_POST["informacao_pessoal"]}', horario_consulta='{$_POST["horario_consulta"]}', ponto_servico='{$_POST["ponto_servico"]}', 
+	WHERE id_funcionario_especialista ='{$_POST["id_funcionario_especialista"]}'";
 	$banco->query($sql);
 	$banco->close();
 	voltarIndex();

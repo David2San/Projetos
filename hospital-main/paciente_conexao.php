@@ -17,27 +17,8 @@ function abrirBanco()
 function inserirPaciente($nome, $nascimento, $email, $senha, $CPF, $telefone, $RG, $endereco, $filiacao, $estado_civil, $doenca_cronica)
 {
 	$banco = abrirBanco();
-	$sql = "INSERT INTO paciente(nome, 
-																														nascimento, 
-																														email, 
-																														senha, 
-																														CPF, 
-																														telefone, 
-																														RG, 
-																														endereco, 
-																														filiacao, 
-																														estado_civil, 
-																														doenca_cronica) VALUES ('{$nome}',
-																																																						'{$nascimento}',
-																																																						'{$email}',
-																																																						'{$senha}',
-																																																						'{$CPF}',
-																																																						'{$telefone}',
-																																																						'{$RG}',
-																																																						'{$endereco}',
-																																																						'{$filiacao}',
-																																																						'{$estado_civil}',
-																																																						'{$doenca_cronica}')";
+	$sql = "INSERT INTO paciente(nome, nascimento, email, senha, CPF, telefone, RG, endereco, filiacao, estado_civil,doenca_cronica) 
+	VALUES ('{$nome}','{$nascimento}','{$email}','{$senha}','{$CPF}','{$telefone}','{$RG}','{$endereco}','{$filiacao}','{$estado_civil}','{$doenca_cronica}')";
 	$banco->query($sql);
 	$banco->close();
 	voltarIndex();
@@ -50,17 +31,17 @@ function alterarPaciente()
 	$banco = abrirBanco();
 	session_start();
 	$sql = "UPDATE paciente SET nome='{$_POST["nome"]}',
-																													nascimento='{$_POST["nascimento"]}',
-																													email='{$_POST["email"]}',
-																													senha='{$_POST["senha"]}',
-																													CPF='{$_POST["CPF"]}',
-																													telefone='{$_POST["telefone"]}',
-																													RG='{$_POST["RG"]}',
-																													endereco='{$_POST["endereco"]}',
-																													filiacao='{$_POST["filiacao"]}',
-																													estado_civil='{$_POST["estado_civil"]}',
-																													doenca_cronica='{$_POST["doenca_cronica"]}' 
-																													WHERE id_pacientte ='{$_POST["id_paciente"]}'";
+	nascimento='{$_POST["nascimento"]}',
+	email='{$_POST["email"]}',
+	senha='{$_POST["senha"]}',
+	CPF='{$_POST["CPF"]}',
+	telefone='{$_POST["telefone"]}',
+	RG='{$_POST["RG"]}',
+	endereco='{$_POST["endereco"]}',
+	filiacao='{$_POST["filiacao"]}',
+	estado_civil='{$_POST["estado_civil"]}',
+	doenca_cronica='{$_POST["doenca_cronica"]}' 
+	WHERE id_pacientte ='{$_POST["id_paciente"]}'";
 	$banco->query($sql);
 	$banco->close();
 	voltarIndex();

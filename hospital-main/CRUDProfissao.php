@@ -27,9 +27,7 @@ function abrirBanco()
 function inserirProfissao($nome, $nivel)
 {
 	$banco = abrirBanco();
-	$sql = "INSERT INTO profissao(nome, 
-																															nivel) VALUES ('{$nome}',
-																																														'{$nivel}')";
+	$sql = "INSERT INTO profissao(nome, nivel) VALUES ('{$nome}','{$nivel}')";
 	$banco->query($sql);
 	$banco->close();
 	voltarIndex();
@@ -40,9 +38,7 @@ function inserirProfissao($nome, $nivel)
 function alterarProfissao()
 {
 	$banco = abrirBanco();
-	$sql = "UPDATE profissao SET nome='{$_POST["nome"]}', 
-																														nivel='{$_POST["nivel"]}' 
-																														WHERE id='{$_POST["id"]}'";
+	$sql = "UPDATE profissao SET nome='{$_POST["nome"]}', nivel='{$_POST["nivel"]}' WHERE id='{$_POST["id"]}'";
 	$banco->query($sql);
 	$banco->close();
 	voltarIndex();

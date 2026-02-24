@@ -11,27 +11,8 @@ function abrirBanco()
 function inserirFuncionario($nome, $nascimento, $email, $senha, $cpf, $rg, $telefone, $endereco, $filiacao, $estado_civil, $especialidade)
 {
 	$banco = abrirBanco();
-	$sql = "INSERT INTO funcionario (nome, 
-																																		nascimento, 
-																																		email, 
-																																		senha, 
-																																		cpf, 
-																																		rg, 
-																																		telefone, 
-																																		endereco, 
-																																		filiaçao, 
-																																		estado civil, 
-																																		especialidade) VALUES ('{$nome}',
-																																																									'{$nascimento}',
-																																																									'{$email}',
-																																																									'{$senha}',
-																																																									'{$cpf}',
-																																																									'{$rg}',
-																																																									'{$telefone}',
-																																																									'{$endereco}',
-																																																									'{$filiacao}',
-																																																									'{$estado_civil}',
-																																																									'{$especialidade}')";
+	$sql = "INSERT INTO funcionario (nome, nascimento, email, senha, cpf, rg, telefone, endereco, filiacao, estado_civil, especialidade) 
+	VALUES ('{$nome}','{$nascimento}','{$email}','{$senha}','{$cpf}','{$rg}','{$telefone}','{$endereco}','{$filiacao}','{$estado_civil}','{$especialidade}')";
 	$banco->query($sql);
 	$banco->close();
 	voltarIndex();
@@ -39,11 +20,8 @@ function inserirFuncionario($nome, $nascimento, $email, $senha, $cpf, $rg, $tele
 function alterarFuncionario()
 {
 	$banco = abrirBanco();
-	$sql = "UPDATE funcionario SET nome='{$_POST["nome"]}',
-																																nascimento='{$_POST["nascimento"]}',
-																																endereco='{$_POST["endereco"]}',
-																																telefone='{$_POST["telefone"]}' 
-																																WHERE id='{$_POST["id"]}'";
+	$sql = "UPDATE funcionario SET nome='{$_POST["nome"]}', nascimento='{$_POST["nascimento"]}', endereco='{$_POST["endereco"]}', telefone='{$_POST["telefone"]}' 
+	WHERE id='{$_POST["id"]}'";
 	$banco->query($sql);
 	$banco->close();
 	voltarIndex();

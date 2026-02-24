@@ -17,13 +17,8 @@ function abrirBanco()
 function inserirConsultaPaciente($vacinas_disponiveis, $marcacao_consultas, $especialista_dia, $atendimento_urgente)
 {
 	$banco = abrirBanco();
-	$sql = "INSERT INTO paciente_consulta(vacinas_disponiveis, 
-																																							marcacao_consultas, 
-																																							especialista_dia, 
-																																							atendimento_urgente) VALUES ('{$vacinas_disponiveis}',
-																																																																				'{$marcacao_consultas}',
-																																																																				'{$especialista_dia}',
-																																																																				'{$atendimento_urgente}')";
+	$sql = "INSERT INTO paciente_consulta(vacinas_disponiveis, marcacao_consultas, especialista_dia, atendimento_urgente) 
+	VALUES ('{$vacinas_disponiveis}','{$marcacao_consultas}','{$especialista_dia}','{$atendimento_urgente}')";
 	$banco->query($sql);
 	$banco->close();
 	voltarIndex();
@@ -36,10 +31,10 @@ function alterarConsultaPaciente()
 	$banco = abrirBanco();
 	session_start();
 	$sql = "UPDATE paciente_consulta SET vacinas_disponiveis='{$_POST["vacinas_disponiveis"]}',
-																																						marcacao_consultas='{$_POST["marcacao_cosnultas"]}',
-																																						especialista_dia='{$_POST["especialista_dia"]}',
-																																						atendimento_urgente='{$_POST["atendimento_urgente"]}', 
-																																						WHERE id_consulta ='{$_POST["id_consulta"]}'";
+	marcacao_consultas='{$_POST["marcacao_consultas"]}',
+	especialista_dia='{$_POST["especialista_dia"]}',
+	atendimento_urgente='{$_POST["atendimento_urgente"]}' 
+	WHERE id_consulta ='{$_POST["id_consulta"]}'";
 	$banco->query($sql);
 	$banco->close();
 	voltarIndex();
