@@ -24,29 +24,32 @@ function abrirBanco()
 
 // Função responsável inseir uma profissão no meu banco de dados
 
-function inserirAdministradores($cadastro_vacina_disponivel, 
-																																$cadastro_marcaçao_consulta, 
-																																$cadastro_especialista_dia, 
-																																$suporte_online, $cadastro_consulta, 
-																																$cadastro_paciente, $cadastro_funcionario, 
-																																$cadastro_especialista)
-{
+function inserirAdministradores(
+	$cadastro_vacina_disponivel,
+	$cadastro_marcaçao_consulta,
+	$cadastro_especialista_dia,
+	$suporte_online,
+	$cadastro_consulta,
+	$cadastro_paciente,
+	$cadastro_funcionario,
+	$cadastro_especialista
+) {
 	$banco = abrirBanco();
 	$sql = "INSERT INTO adminitradores(cadastro_vacina_disponivel, 
-																																				cadastro_marcaçao_consulta, 
-																																				cadastro_especialista_dia, 
-																																				suporte_online, 
-																																				cadastro_consulta, 
-																																				cadastro_paciente, 
-																																				cadastro_funcionario, 
-																																				cadastro_especialista) VALUES ('{$cadastro_vacina_disponivel}', 
-																																																																			'{$cadastro_marcaçao_consulta}', 
-																																																																			'{$cadastro_especialista_dia}', 
-																																																																			'{$suporte_online}', 
-																																																																			'{$cadastro_consulta}', 
-																																																																			'{$cadastro_paciente}', 
-																																																																			'{$cadastro_funcionario}', 
-																																																																			'{$cadastro_especialista}', )";
+	cadastro_marcaçao_consulta, 
+	cadastro_especialista_dia, 
+	suporte_online, 
+	cadastro_consulta, 
+	cadastro_paciente, 
+	cadastro_funcionario, 
+	cadastro_especialista) VALUES ('{$cadastro_vacina_disponivel}', 
+	'{$cadastro_marcaçao_consulta}', 
+	'{$cadastro_especialista_dia}', 
+	'{$suporte_online}', 
+	'{$cadastro_consulta}', 
+	'{$cadastro_paciente}', 
+	'{$cadastro_funcionario}', 
+	'{$cadastro_especialista}', )";
 	$banco->query($sql);
 	$banco->close();
 	voltarIndex();
@@ -58,14 +61,14 @@ function alterarAdministradores()
 {
 	$banco = abrirBanco();
 	$sql = "UPDATE adminitradores SET cadastro_vacina_disponivel='{$_POST["cadastro_vacina_disponivel"]}', 
-																																			cadastro_marcaçao_consulta='{$_POST["cadastro_marcaçao_consulta"]}', 
-																																			cadastro_especialista_dia='{$_POST["cadastro_especialista_dia"]}', 
-																																			suporte_online='{$_POST["suporte_online"]}', 
-																																			cadastro_consulta='{$_POST["cadastro_consulta"]}', 
-																																			cadastro_paciente='{$_POST["cadastro_paciente"]}', 
-																																			cadastro_funcionario='{$_POST["cadastro_funcionario"]}', 
-																																			cadastro_especialista='{$_POST["cadastro_especialista"]}' 
-																																			WHERE id='{$_POST["id"]}'";
+	cadastro_marcaçao_consulta='{$_POST["cadastro_marcaçao_consulta"]}', 
+	cadastro_especialista_dia='{$_POST["cadastro_especialista_dia"]}', 
+	suporte_online='{$_POST["suporte_online"]}', 
+	cadastro_consulta='{$_POST["cadastro_consulta"]}', 
+	cadastro_paciente='{$_POST["cadastro_paciente"]}', 
+	cadastro_funcionario='{$_POST["cadastro_funcionario"]}', 
+	cadastro_especialista='{$_POST["cadastro_especialista"]}' 
+	WHERE id='{$_POST["id"]}'";
 	$banco->query($sql);
 	$banco->close();
 	voltarIndex();
